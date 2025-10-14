@@ -1,0 +1,8 @@
+# archive files
+node_modules/
+.env
+.env.test
+
+# build output
+dist/
+coverage/
