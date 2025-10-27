@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: biblioteca-gerenciamento
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI_TEST
+        fromDatabase:
+          name: mongodb-atlas
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
