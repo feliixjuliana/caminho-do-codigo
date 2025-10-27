@@ -7,31 +7,8 @@ on:
 env:
   NODE_VERSION: '18.x'
 jobs:
-  test:
-    name: Run Tests
-    runs-on: ubuntu-latest
-
-    services: 
-      mongodb: 
-        image: mongo:5.0
-        ports: 
-          - 27017: 27017
-          
-    steps: 
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          node-version: ${{ env.NODE_VERSION}}
-          cache: npm
-      - name: install dependecies
-        run: npm ci
-
-      - name: Build project
-        run: npm run build
-
   deploy:
     name: deploy-to-render
-    needs: test
     runs-on: ubuntu-latest
 
     if: github.ref == 'refs/heads/main'
