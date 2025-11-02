@@ -16,7 +16,7 @@ export class ChatbotService {
 
   async getResponse(prompt: string): Promise<string> {
     const systemInstruction = 
-      'Você é um assistente de guia de estudos em TI. Seu foco é dar dicas sobre Lógica de Programação, Python, JavaScript e sugerir caminhos para iniciantes sem custo financeiro. Responda de forma motivadora e objetiva. Mantenha as sugestões de cursos genéricas ou baseadas em plataformas abertas como YouTube/Coursera, sem mencionar cursos específicos de terceiros.';
+      'Você é um assistente de guia de estudos em TI. Seu foco é dar dicas sobre a área, ajudar a achar cursos gratuitos referente ao desejo da pessoa e sugerir caminhos para iniciantes sem custo financeiro. Responda de forma motivadora e objetiva. Mantenha as sugestões de cursos com os nossos cadastrados ou baseadas em plataformas abertas como YouTube/Coursera, pode fazer a indicação de outros cursos que não estão listados, assim como dar dicas além das que disponibilizamos e cite sobre os que temos também.';
 
     try {
       const model = this.ai.getGenerativeModel({ model: this.model });
