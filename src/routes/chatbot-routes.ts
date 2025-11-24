@@ -1,10 +1,12 @@
 import express from 'express';
 import { ChatbotService } from '../services/chatbot-service';
 import { createChatbotControllerHandlers } from '../controllers/chatbot-controller';
+import { MongoCourseRepository } from '../database/MongoCourseRepository';
 
-var router = express.Router();
+const router = express.Router();
 
-const chatbotService = new ChatbotService();
+const courseRepository = new MongoCourseRepository();
+const chatbotService = new ChatbotService(courseRepository);
 const chatbotController = createChatbotControllerHandlers(chatbotService);
 
 router.post('/chatbot', chatbotController.askQuestion);

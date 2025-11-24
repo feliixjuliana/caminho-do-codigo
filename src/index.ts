@@ -15,6 +15,7 @@ const PORT = config.port;
 
 app.use(express.json());
 app.use(cors());
+
 app.use('/api', courseRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', chatbotRoutes);
@@ -23,6 +24,7 @@ const URL = config.mongo_url;
 if (!URL) {
   throw new Error('A variável de ambiente MONGO_URL não está definida.');
 }
+
 connectToMongo(URL);
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
